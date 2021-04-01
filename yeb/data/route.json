@@ -1,0 +1,28 @@
+[
+    {
+      "path":"/login",
+      "name":"Login",
+      "component":"Login",
+      "hidden":true
+    },
+    {
+      "path":"/",
+      "name":"导航一",
+      "component":"Home",
+      "children":[
+        {
+          "path":"/test",
+          "name":"选项一",
+          "component":"Test"
+        },
+        {
+          "path":"/",
+          "name":"选项二"
+        }
+  
+        
+      ]
+    }
+   
+    
+  ]
