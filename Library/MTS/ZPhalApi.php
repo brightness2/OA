@@ -66,10 +66,14 @@ class MTS_ZPhalApi {
             // 接口调度与响应
             $api    = PhalApi_ApiFactory::generateService(); 
             $action = $di->request->getServiceAction();
-            $data   = call_user_func(array($api, $action));
+            // 执行api前
+            // $data  = call_user_func(array($api, $action));//执行api中
+            // 执行api后
+            //使用拦截器
+            $InterceptorManage = new Interceptor_Lib;
+            $data = $InterceptorManage->action($api);
+            //
             $rs->setData($data);
-           
-            
         } catch (MTS_ZException $ex) {
             // Brightness 业务异常
             $rs->setCode( $ex->getCode());#Brightness 2020-10-20
